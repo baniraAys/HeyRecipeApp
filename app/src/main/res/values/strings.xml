@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">HeyRecipe</string>
+    <string-array name="favorite_websites">
+        <item>Sinigang na Baboy</item>
+        <item>Tinolang Manok</item>
+        <item>Kare Kare</item>
+        <item>Adobo</item>
+        <item>Beef Caldereta</item>
+        <item>Dinuguan</item>
+    </string-array>
+    <string-array name="descriptions">
+        <item>Filipino pork soup with taro cooked in a sour broth. Sinigang is my comfort food, and one of the first few dishes that I tried to make way back when I was starting to learn how to cook.</item>
+        <item>Tinolang Manok is a great tasting and healthy dish to prepare for your family. It is easy to cook and friendly on the budget.</item>
+        <item>Kare Kare is a traditional Filipino stew complimented with a thick savory peanut sauce. The commonly used meats for this dish are ox tail, tripe, and pork leg; on some occasions goat and chicken meat are also used.</item>
+        <item>It is a dish composed of pork slices cooked in soy sauce, vinegar, and garlic. There are version wherein onions are also added. Adobo is a popular dish in the Philippines, along with Sinigang.</item>
+        <item>Another favorite Filipino dish is the Kaldereta. It is a hearty meat dish using chevon (goat meat), beef, or pork combined with potatoes, carrots, tomato sauce, and liver spread or liver paste. </item>
+        <item>Pork Dinuguan is a type of stew native to the Philippines. It is peculiar when compared to other types of stews because of the use of pork blood as the main ingredient. </item>
+    </string-array>
+</resources>

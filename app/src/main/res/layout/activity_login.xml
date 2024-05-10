@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/windows"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Let's get cooking!"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/cook2"/>
+    <EditText
+        android:id="@+id/logUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:padding="19px"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Username"/>
+    <EditText
+        android:id="@+id/logPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginTop="10dp"
+        android:padding="19px"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Password"
+        />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_corner_green"
+        android:text="Login"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
