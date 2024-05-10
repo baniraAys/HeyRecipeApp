@@ -10,7 +10,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class ActivityRegister extends AppCompatActivity {
+    FloatingActionButton backFloat;
     EditText inpUser, inpPw, inpRePw;
     Button btnRegister, btnGoLogin;
     DBHelper dbHelper;
@@ -26,11 +29,13 @@ public class ActivityRegister extends AppCompatActivity {
 
         btnGoLogin = findViewById(R.id.signin);
         btnRegister = findViewById(R.id.signup);
+        backFloat = findViewById(R.id.backFloat);
         btnGoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityRegister.this, ActivityLogin.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +65,15 @@ public class ActivityRegister extends AppCompatActivity {
                         Toast.makeText(ActivityRegister.this, "Passwords doesn't match", Toast.LENGTH_LONG).show();
                     }
                 }
+            }
+        });
+
+        backFloat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityRegister.this, ActivityHomePage.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

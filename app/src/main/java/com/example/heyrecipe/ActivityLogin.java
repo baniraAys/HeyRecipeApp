@@ -10,7 +10,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class ActivityLogin extends AppCompatActivity {
+    FloatingActionButton backFloat;
     DBHelper dbHelper;
     Button login;
     EditText userInp, passInp;
@@ -23,6 +26,7 @@ public class ActivityLogin extends AppCompatActivity {
         userInp = findViewById(R.id.logUsername);
         passInp = findViewById(R.id.logPassword);
         login = findViewById(R.id.login);
+        backFloat = findViewById(R.id.backFloat);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,9 +34,19 @@ public class ActivityLogin extends AppCompatActivity {
                 if(isLoggedId){
                     Intent intent = new Intent(ActivityLogin.this, ActivityDashboard.class);
                     startActivity(intent);
+                    finish();
                 }else{
                     Toast.makeText(ActivityLogin.this, "Login Failed", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        backFloat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityLogin.this, ActivityHomePage.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

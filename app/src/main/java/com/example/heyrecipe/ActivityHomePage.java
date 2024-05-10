@@ -23,6 +23,7 @@ public class ActivityHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHomePage.this, ActivityRegister.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -31,6 +32,7 @@ public class ActivityHomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityHomePage.this, ActivityLogin.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

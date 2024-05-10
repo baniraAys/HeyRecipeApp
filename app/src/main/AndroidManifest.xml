@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-
         tools:targetApi="31">
+        <activity
+            android:name=".ActivityViewRecipe"
+            android:parentActivityName=".ActivityDashboard"
+            android:label="Recipe"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".ActivityHomePage"
             android:exported="false" />
