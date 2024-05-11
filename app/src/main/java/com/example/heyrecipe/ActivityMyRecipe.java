@@ -15,11 +15,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class ActivityMyRecipe extends AppCompatActivity {
-
+FloatingActionButton backFloat;
     RecyclerView recyclerView;
     FloatingActionButton add_recipe;
     DBHelper2 dbHelper;
-    ArrayList<String> recipe_id, recipe_name, recipe_ingredients;
+    ArrayList<String> recipe_id, recipe_name, recipe_ingredients, recipe_steps;
     CustomAdapter customAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +37,15 @@ public class ActivityMyRecipe extends AppCompatActivity {
             }
         });
 
+
         dbHelper = new DBHelper2(ActivityMyRecipe.this);
         recipe_id = new ArrayList<>();
         recipe_name = new ArrayList<>();
         recipe_ingredients = new ArrayList<>();
+        recipe_steps = new ArrayList<>();
         storeArray();
 
-        customAdapter = new CustomAdapter(ActivityMyRecipe.this, recipe_id, recipe_name, recipe_ingredients);
+        customAdapter = new CustomAdapter(ActivityMyRecipe.this, recipe_id, recipe_name, recipe_ingredients, recipe_steps);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager((ActivityMyRecipe.this)));
 
@@ -58,6 +60,7 @@ public class ActivityMyRecipe extends AppCompatActivity {
                 recipe_id.add(cursor.getString(0));
                 recipe_name.add(cursor.getString(1));
                 recipe_ingredients.add(cursor.getString(2));
+                recipe_steps.add(cursor.getString(3));
             }
         }
     }

@@ -53,7 +53,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/recipeNameINP"
+                android:id="@+id/recipeNameINP2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -75,7 +75,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/ingredientsINP"
+                android:id="@+id/ingredientsINP2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -96,7 +96,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/recipeINP"
+                android:id="@+id/recipeINP2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -106,17 +106,17 @@
                 android:padding="19px" />
 
             <Button
-                android:id="@+id/addRecipe"
+                android:id="@+id/updateRecipe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:layout_marginLeft="60dp"
-                android:layout_marginRight="60dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginRight="60dp"
                 android:layout_marginBottom="30dp"
-                android:textStyle="bold"
                 android:background="@drawable/rounded_corner_green"
-                android:text="Add Recipe" />
+                android:text="Update Recipe"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

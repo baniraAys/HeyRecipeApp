@@ -13,13 +13,20 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityUpdateRecipe"
+            android:exported="false"
+            android:label="Update Recipe"
+            android:parentActivityName=".ActivityMyRecipe"/>
+        <activity
             android:name=".ActivityMyRecipe_add"
             android:exported="false"
-            android:label="Add Recipe"/>
+            android:label="Add Recipe"
+            android:parentActivityName=".ActivityMyRecipe"/>
         <activity
             android:name=".ActivityMyRecipe"
             android:exported="false"
-            android:label="My Recipes" />
+            android:label="My Recipes"
+            android:parentActivityName=".ActivityDashboard"/>
         <activity
             android:name=".ActivityViewRecipe"
             android:exported="false"
@@ -40,8 +47,9 @@
         </activity>
         <activity android:name=".ActivityLogin" />
         <activity android:name=".ActivityRegister" />
-        <activity android:name=".ActivityDashboard"
-            android:label="Hey Recipe!"/>
+        <activity
+            android:name=".ActivityDashboard"
+            android:label="Hey Recipe!" />
     </application>
 
 </manifest>

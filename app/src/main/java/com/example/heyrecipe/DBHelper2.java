@@ -2,6 +2,7 @@ package com.example.heyrecipe;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -20,7 +21,7 @@ public class DBHelper2 extends SQLiteOpenHelper {
     private static final String COLUMN_STEPS = "recipe_steps";
 
     //private String TABLE_CREATE_RECIPE = "CREATE TABLE " + TABLE_NAME + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ COLUMN_NAME + " TEXT, " + COLUMN_INGRE + " TEXT, "+ COLUMN_STEPS + " TEXT);";
-    public DBHelper2(@Nullable Context context) {
+    DBHelper2(@Nullable Context context) {
         super(context, DBname, null, 2);
     }
 
@@ -63,5 +64,24 @@ public class DBHelper2 extends SQLiteOpenHelper {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
+    }
+
+    public Boolean updateData(String row_id, String name, String ingre, String steps){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_INGRE, ingre);
+        cv.put(COLUMN_STEPS, steps);
+
+
+        long result = db.update(TABLE_NAME, cv, " id = ?", new String[]{row_id});
+        Log.i("WORKING","UPDATE " + TABLE_NAME + " SET " + cv + "\n WHERE id = " + row_id);
+        Log.i("WORKING", "RESULT: " + result);
+
+        if(result == -1)
+            return false;
+        else
+            return true;
+
     }
 }
