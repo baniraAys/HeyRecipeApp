@@ -13,11 +13,18 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityMyRecipe_add"
+            android:exported="false"
+            android:label="Add Recipe"/>
+        <activity
+            android:name=".ActivityMyRecipe"
+            android:exported="false"
+            android:label="My Recipes" />
+        <activity
             android:name=".ActivityViewRecipe"
-            android:parentActivityName=".ActivityDashboard"
+            android:exported="false"
             android:label="Recipe"
-            android:exported="false">
-        </activity>
+            android:parentActivityName=".ActivityDashboard" />
         <activity
             android:name=".ActivityHomePage"
             android:exported="false" />
@@ -33,7 +40,8 @@
         </activity>
         <activity android:name=".ActivityLogin" />
         <activity android:name=".ActivityRegister" />
-        <activity android:name=".ActivityDashboard" />
+        <activity android:name=".ActivityDashboard"
+            android:label="Hey Recipe!"/>
     </application>
 
 </manifest>

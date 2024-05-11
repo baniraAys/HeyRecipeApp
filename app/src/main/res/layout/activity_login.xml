@@ -52,6 +52,7 @@
         android:padding="19px"
         android:background="@drawable/rounded_edittext"
         android:hint="Password"
+        android:inputType="textPassword"
         />
 
     <Button
