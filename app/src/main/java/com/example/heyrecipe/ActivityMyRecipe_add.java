@@ -32,6 +32,7 @@ public class ActivityMyRecipe_add extends AppCompatActivity {
         steps = findViewById(R.id.recipeINP);
 
         add = findViewById(R.id.addRecipe);
+        setSupportActionBar(findViewById(R.id.my_toolbar));
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

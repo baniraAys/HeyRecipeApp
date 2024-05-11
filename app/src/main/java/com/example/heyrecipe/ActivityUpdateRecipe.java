@@ -1,8 +1,11 @@
 package com.example.heyrecipe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class ActivityUpdateRecipe extends AppCompatActivity {
     FloatingActionButton backFloat;
     EditText nameInp, ingreInp, recipeInp;
-    Button updateBtn;
+    Button updateBtn, deleteBtn;
 
     String id, name, ingre, steps;
     @Override
@@ -23,13 +26,15 @@ public class ActivityUpdateRecipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_recipe);
         Intent intent = new Intent(ActivityUpdateRecipe.this, ActivityMyRecipe.class);
-
+        setSupportActionBar(findViewById(R.id.my_toolbar));
         backFloat = findViewById(R.id.backFloat);
         nameInp = findViewById(R.id.recipeNameINP2);
         ingreInp = findViewById(R.id.ingredientsINP2);
         recipeInp = findViewById(R.id.recipeINP2);
+
         getAndSetData();
         updateBtn = findViewById(R.id.updateRecipe);
+        deleteBtn = findViewById(R.id.deleteRecipe);
 
         updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +54,12 @@ public class ActivityUpdateRecipe extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
             }
         });
         backFloat.setOnClickListener(new View.OnClickListener() {
@@ -80,4 +91,34 @@ public class ActivityUpdateRecipe extends AppCompatActivity {
             Toast.makeText(this, "No data!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + name + " ?");
+        builder.setMessage("Are you sure you want to delete " + name +" ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DBHelper2 mydb = new DBHelper2(ActivityUpdateRecipe.this);
+                Boolean result = mydb.deleteOneRow(id);
+
+                if(result) {
+                    Toast.makeText(ActivityUpdateRecipe.this, "Successfully Deleted!", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else{
+                    Toast.makeText(ActivityUpdateRecipe.this, "Failed to Delete!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+    }
+
+
 }

@@ -117,6 +117,17 @@
                 android:text="Update Recipe"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+            <Button
+                android:id="@+id/deleteRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/rounded_corner_orange"
+                android:text="DELETE"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

@@ -84,4 +84,13 @@ public class DBHelper2 extends SQLiteOpenHelper {
             return true;
 
     }
+    public Boolean deleteOneRow(String row_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "id = ?", new String[]{row_id});
+
+        if (result == -1)
+            return false;
+        else
+            return true;
+    }
 }
