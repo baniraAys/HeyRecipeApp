@@ -14,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class ActivityDashboard extends AppCompatActivity {
     FloatingActionButton myRecipe;
     RecyclerView recyclerView;
-    String s1[], s2[];
+    String s1[], s2[], s3[];
     int images[] = {R.drawable.sinigang, R.drawable.tinola, R.drawable.karekare, R.drawable.adobo, R.drawable.caldereta, R.drawable.dinuguan};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,8 +26,9 @@ public class ActivityDashboard extends AppCompatActivity {
 
         s1 = getResources().getStringArray(R.array.favorite_websites);
         s2 = getResources().getStringArray(R.array.descriptions);
+        s3 = getResources().getStringArray(R.array.recipes);
 
-        MyAdapter myAdapter = new MyAdapter(this, s1, s2, images);
+        MyAdapter myAdapter = new MyAdapter(this, s1, s2, s3, images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         setSupportActionBar(findViewById(R.id.my_toolbar));

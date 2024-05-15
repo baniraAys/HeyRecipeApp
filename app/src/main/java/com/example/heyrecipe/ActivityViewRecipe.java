@@ -10,9 +10,9 @@ import android.widget.Toast;
 public class ActivityViewRecipe extends AppCompatActivity {
 
     ImageView mainImageView;
-    TextView title, desc;
+    TextView title, desc, steps;
 
-    String data1, data2;
+    String data1, data2, data3;
     int myImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class ActivityViewRecipe extends AppCompatActivity {
         mainImageView = findViewById(R.id.mainImageView);
         title = findViewById(R.id.titleRecipe);
         desc = findViewById(R.id.descRecipe);
+        steps = findViewById(R.id.recipe);
 
         getData();
         setData();
@@ -33,6 +34,7 @@ public class ActivityViewRecipe extends AppCompatActivity {
 
             data1 = getIntent().getStringExtra("data1");
             data2 = getIntent().getStringExtra("data2");
+            data3 = getIntent().getStringExtra("data3");
             myImage = getIntent().getIntExtra("myImage",1);
 
         }else{
@@ -42,6 +44,7 @@ public class ActivityViewRecipe extends AppCompatActivity {
     private void setData(){
         title.setText(data1);
         desc.setText(data2);
+        steps.setText(data3);
         mainImageView.setImageResource(myImage);
     }
 }

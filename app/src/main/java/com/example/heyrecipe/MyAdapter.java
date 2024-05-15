@@ -14,13 +14,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    String data1[], data2[];
+    String data1[], data2[], data3[];
     int images[];
     Context context;
-    public MyAdapter(Context ct,String s1[], String s2[], int img[]){
+    public MyAdapter(Context ct,String s1[], String s2[], String s3[], int img[]){
         context = ct;
         data1 = s1;
         data2 = s2;
+        data3 = s3;
         images = img;
     }
     @NonNull
@@ -35,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.websiteTitle.setText(data1[position]);
         holder.descText.setText(data2[position]);
+        holder.recipe.setText(data3[position]);
         holder.myImage.setImageResource(images[position]);
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 Intent intent = new Intent(context, ActivityViewRecipe.class);
                 intent.putExtra("data1", data1[position]);
                 intent.putExtra("data2", data2[position]);
+                intent.putExtra("data3", data3[position]);
                 intent.putExtra("myImage", images[position]);
                 context.startActivity(intent);
             }
@@ -56,7 +59,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView websiteTitle, descText;
+        TextView websiteTitle, descText, recipe;
         ImageView myImage;
         ConstraintLayout mainLayout;
         public MyViewHolder(@NonNull View itemView) {
@@ -64,6 +67,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             websiteTitle = itemView.findViewById(R.id.website_title);
             descText = itemView.findViewById(R.id.desc_text);
             myImage = itemView.findViewById(R.id.myImageView);
+            recipe  = itemView.findViewById(R.id.recipe);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
